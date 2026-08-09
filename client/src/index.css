@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #fdfdfd; /* Extremely light gray/white */
+    --foreground: #09090b; /* Zinc 950 */
+    
+    --card: rgba(255, 255, 255, 0.8);
+    --card-foreground: #09090b;
+    
+    --primary: #071732; /* Logo Navy */
+    --primary-foreground: #ffffff;
+    --primary-hover: #1e3a8a; /* Blue 900 */
+    
+    --secondary: #f4f4f5; /* Zinc 100 */
+    --secondary-foreground: #18181b; /* Zinc 900 */
+    
+    --muted: #f4f4f5; /* Zinc 100 */
+    --muted-foreground: #71717a; /* Zinc 500 */
+    
+    --border: rgba(0, 0, 0, 0.08); 
+    
+    --success: #10b981;
+    --danger: #ef4444; 
+    --warning: #f59e0b; 
+  }
+
+  .dark {
+    --background: #050505; /* Deep Midnight Black */
+    --foreground: #fafafa; /* Zinc 50 */
+    
+    --card: rgba(24, 24, 27, 0.6); /* Zinc 900 Glass */
+    --card-foreground: #fafafa;
+    
+    --primary: #3b82f6; /* Blue 500 */
+    --primary-foreground: #ffffff;
+    --primary-hover: #60a5fa; /* Blue 400 */
+    
+    --secondary: rgba(39, 39, 42, 0.6); /* Zinc 800 Glass */
+    --secondary-foreground: #e4e4e7; /* Zinc 200 */
+    
+    --muted: #18181b; /* Zinc 900 */
+    --muted-foreground: #a1a1aa; /* Zinc 400 */
+    
+    --border: rgba(255, 255, 255, 0.08); 
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased min-h-screen;
+    background-image: radial-gradient(circle at top right, rgba(7, 23, 50, 0.05), transparent 40%),
+                      radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.05), transparent 40%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    background-color: rgba(99, 102, 241, 0.3);
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-card backdrop-blur-xl border border-border shadow-xl;
+  }
+  .glass-button {
+    @apply bg-secondary/80 backdrop-blur-md border border-border hover:bg-secondary transition-colors;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#071732] to-blue-500 dark:from-blue-400 dark:to-blue-200;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-400 dark:bg-zinc-600;
+}
