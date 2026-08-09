@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import { LayoutDashboard, ReceiptText, Wallet, Settings, LogOut, Sun, Moon, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const navigation = [
   { name: 'Dashboard', href: '/', icon: LayoutDashboard },
@@ -127,6 +128,7 @@ const DashboardLayout = () => {
             </motion.div>
           </AnimatePresence>
         </div>
+        <Footer />
       </main>
 
       {/* Mobile Floating Bottom Nav */}

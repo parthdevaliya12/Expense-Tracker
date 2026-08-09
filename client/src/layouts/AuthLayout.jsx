@@ -2,6 +2,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Loader2 } from 'lucide-react';
 import { motion } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const AuthLayout = () => {
   const { user, loading } = useAuth();
@@ -67,8 +68,8 @@ const AuthLayout = () => {
       </div>
 
       {/* Right Side - Auth Form */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12">
-        <div className="w-full max-w-md">
+      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center p-6 sm:p-12">
+        <div className="w-full max-w-md flex-1 flex flex-col justify-center">
           <div className="lg:hidden flex justify-center mb-8">
              <div className="w-16 h-16 shrink-0">
                 <img src="/spendiq.png" alt="SpendIQ" className="w-full h-full object-contain" />
@@ -82,6 +83,7 @@ const AuthLayout = () => {
           {/* Outlet renders Login or Register */}
           <Outlet />
         </div>
+        <Footer />
       </div>
     </div>
   );
